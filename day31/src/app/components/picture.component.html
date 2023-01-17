@@ -1,0 +1,11 @@
+<!-- <h3>Displaying {{ imageURL }}</h3> -->
+<!-- <img [src]="imageURL" alt="golden retriever" class="thumbnail" [width]="width"> -->
+<table>
+    <tr>
+        <img [src]="imageURL" alt="gr2" [width]="width" (click)="imageClicked()"> 
+    </tr>
+        <button (click)="resize(10)">Image +</button>
+        <button (click)="resize(-10)">Image -</button>
+    <tr>
+    </tr>
+</table>

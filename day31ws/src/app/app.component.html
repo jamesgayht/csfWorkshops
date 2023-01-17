@@ -1,0 +1,7 @@
+<div class="center-it">
+  <h1>Yet Another Shopping Cart</h1>
+</div>
+<div class="side-by-side">
+  <app-inventory (onSelection)="select($event)"></app-inventory>
+  <app-cart [cart]="content"></app-cart>
+</div>

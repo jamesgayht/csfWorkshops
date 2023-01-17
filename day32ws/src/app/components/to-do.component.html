@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" formControlName="name"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" formControlName="email"></td>
+        </tr>
+        <tr>
+            <td><button type="button" (click)="addTask()">Add Task</button></td>
+            <td><button type="submit" [disabled]="form.invalid">Save</button></td>
+            <td><button type="button" (click)="clearForm()">Clear</button></td>
+        </tr>
+    </table>
+
+    <div *ngIf="taskItems.length <= 0">
+        <h3>You're a free bird today!</h3>
+    </div>
+
+    <table *ngIf="taskItems.length > 0">
+        <h3>Time to get twerking</h3>
+        <thead>
+            <tr>
+                <td>Task</td>
+                <td>Priority</td>
+                <td>Due Date</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody formArrayName="taskItems">
+            <tr *ngFor="let ti of taskItems.controls; let idx = index" [formGroupName]="idx">
+                <td><input type="text" placeholder="Task" formControlName="task"></td>
+                <td>
+                    <select formControlName="priority">
+                        <option value="LOW" selected>LOW</option>
+                        <option value="MED">MED</option>
+                        <option value="HIGH">HIGH</option>
+                    </select>
+                </td>
+                <td><input type="date" formControlName="dueDate"></td>
+                <td><button type="button" (click)="deleteTask(idx)">X</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>

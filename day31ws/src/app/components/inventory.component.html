@@ -1,0 +1,9 @@
+<h3>This is our current inventory:</h3>
+<div *ngFor="let i of inventories" class="inventory" (click)="selected(i.imageURL)">
+    <img src="/assets/fruits/{{i.imageURL}}.png" alt="{{i.name}}">
+    <span class="name">{{i.name}}</span>
+    <div>
+        <button>+</button>
+        <button>-</button>
+    </div>
+</div>

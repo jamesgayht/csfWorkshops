@@ -1,0 +1,16 @@
+
+<div *ngIf="cart.length <= 0">
+    <h3>Your cart is empty!</h3>
+</div>
+
+<div *ngIf="cart.length > 0">
+    <h3>Your Cart Items:</h3>
+    <div *ngFor="let i of cart">
+        <img src="assets/fruits/{{i.imageURL}}.png" alt="{{i.name}}">
+        <span>{{i.name}}</span>
+        <!-- <span>{{clicks}}</span> -->
+    </div>
+</div>
+
+
+

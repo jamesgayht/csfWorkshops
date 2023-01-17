@@ -1,0 +1,17 @@
+<h1>Hello World</h1>
+
+<h3>Number of images {{ grImages.length }}</h3>
+
+<div *ngIf="(grImages.length % 2 > 0)">
+  <h3>Odd number of images</h3>
+</div>
+
+<div *ngIf="(grImages.length) % 2 == 0">
+  <h3>Even number of images</h3>
+</div>
+
+<app-picture *ngFor="let img of grImages" [imageURL]="img" (onClicked)="imageClicked($event)"></app-picture>
+
+<!-- each handler can only have one $event -->
+<!-- <app-picture (onClicked)="imageClicked($event)"></app-picture>
+<app-picture [width]="widthCom" [imageURL]="image"></app-picture> -->

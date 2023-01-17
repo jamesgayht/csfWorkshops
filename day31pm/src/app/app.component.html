@@ -1,0 +1,18 @@
+<h1>Welcome to your fruit store inventory!</h1>
+<app-inventory 
+  *ngFor="let fruit of fruits" 
+  [imageURL]="fruit.url"
+  [fruitName]="fruit.name" 
+  [imageCount]="count" 
+  (onClick)="imageClicked($event)">
+</app-inventory>
+
+<h1 *ngIf="cartExist">Your cart items:</h1>
+<div *ngIf="cartExist">
+  <app-cart 
+    *ngFor="let fruit of items"
+    [cartImageUrl]="fruit.fruitImage"
+    [cartFruitName]="fruit.imageName"
+    >
+  </app-cart>
+</div>
