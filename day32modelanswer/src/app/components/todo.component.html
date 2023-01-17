@@ -1,0 +1,52 @@
+<form [formGroup]="todoForm">
+
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" size="20" placeholder="Name" formControlName="name"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" size="20" placeholder="Email" formControlName="email"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="apart">
+                    <button type="button" (click)="addTask">Add Task</button>
+                    <button type="submit">Save</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        Your cart is empty!
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" placeholder="Task" size="30"></td>
+                <td>
+                    <select>
+                        <option value="low" selected>LOW</option>
+                        <option value="medium">MEDIUM</option>
+                        <option value="high">HIGH</option>
+                    </select>
+                </td>
+                <td><input type="date" placeholder="Due Date"></td>
+                <td><button type="button">x</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</form>

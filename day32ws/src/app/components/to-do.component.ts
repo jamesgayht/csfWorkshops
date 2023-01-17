@@ -10,9 +10,9 @@ import { TaskItem, Tasks } from '../models';
 })
 export class ToDoComponent implements OnInit {
 
-  form!: FormGroup;
+  form: FormGroup = new FormGroup({});
   taskItems!: FormArray;
-  tasks!: Tasks
+  tasks!: Tasks;
 
   constructor(private fb: FormBuilder) {}
 
@@ -29,6 +29,7 @@ export class ToDoComponent implements OnInit {
     console.info("Adding Task Item");
     this.taskItems.push(this.createTaskItem());
   }  
+
 
   public deleteTask(i: number) {
     console.info("Removing Task Item");
