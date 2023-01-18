@@ -1,4 +1,4 @@
-<form [formGroup]="todoForm">
+<form [formGroup]="todoForm" (ngSubmit)="processForm()">
 
     <table>
         <tr>
@@ -13,18 +13,18 @@
             <td></td>
             <td>
                 <div class="apart">
-                    <button type="button" (click)="addTask">Add Task</button>
+                    <button type="button" (click)="addTask()">Add Task</button>
                     <button type="submit">Save</button>
                 </div>
             </td>
         </tr>
     </table>
 
-    <div>
+    <div *ngIf="taskArray.length <= 0">
         Your cart is empty!
     </div>
 
-    <table>
+    <table *ngIf="taskArray.length > 0">
         <thead>
             <tr>
                 <th>Task</th>
@@ -32,18 +32,18 @@
                 <th>Due Date</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" placeholder="Task" size="30"></td>
+        <tbody formArrayName="tasks">
+            <tr *ngFor="let t of taskArray.controls; let i = index" [formGroupName]="i">
+                <td><input type="text" placeholder="Task" size="30" formControlName="task"></td>
                 <td>
-                    <select>
+                    <select formControlName="priority">
                         <option value="low" selected>LOW</option>
                         <option value="medium">MEDIUM</option>
                         <option value="high">HIGH</option>
                     </select>
                 </td>
-                <td><input type="date" placeholder="Due Date"></td>
-                <td><button type="button">x</button></td>
+                <td><input type="date" placeholder="Due Date" formControlName="dueDate"></td>
+                <td><button type="button" (click)="deleteTask(i)">x</button></td>
             </tr>
         </tbody>
     </table>
