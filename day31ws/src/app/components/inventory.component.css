@@ -1,0 +1,12 @@
+.inventories {
+    border: 1px solid black;
+    margin: 2vh auto;
+    border-radius: 25px;
+    padding: 40px;
+    justify-content: center;
+    text-align: center;
+}
+
+#add {
+    justify-content: space-around;
+}

@@ -1,0 +1,17 @@
+<mat-toolbar color="accent" class="toolbar">
+    <img src="/assets/images/icons/icon-72x72.png" class="thumbnail">
+    <span class="title">My First Material Application
+        
+    </span>
+  </mat-toolbar>
+
+<app-user (onNewUser)="newUser($event)">
+    <div class="button-bar">
+        <button type="button" mat-raised-button color="warn" (click)="clearForm()">
+            <mat-icon>delete</mat-icon> Clear
+        </button>
+        <button type="button" mat-raised-button color="accent" (click)="share()" [disabled]="canShare">
+            <mat-icon>share</mat-icon>Share
+        </button>
+    </div>
+</app-user>

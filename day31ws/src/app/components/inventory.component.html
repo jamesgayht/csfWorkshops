@@ -1,0 +1,17 @@
+<h2>{{ inventoryTitle }}</h2>
+
+<div class="inventories" *ngFor="let i of inventories; let idx = index">
+    <div>
+        <img [src]="i.imageUrl">
+    </div>
+    <div>
+        {{ i.description }}
+        {{ i.quantity }}
+    </div>
+    <br>
+    <div>
+        <button type="button" (click)="addTo(1, i)">+</button>
+        <button type="button" *ngIf="i.quantity > 0" (click)="removeFrom(-1, i)">-</button>
+        <button type="button" (click)="selected(i.imageUrl, i.description, i.quantity, idx)">Add</button>
+    </div>
+</div>

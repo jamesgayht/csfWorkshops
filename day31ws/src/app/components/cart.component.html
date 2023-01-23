@@ -1,0 +1,13 @@
+<h2 *ngIf="cart.length <= 0">Your cart is empty!</h2>
+<h2 *ngIf="cart.length > 0">Your cart items:</h2>
+
+<div *ngFor="let c of cart;  let i = index">
+    <img [src]="c.imageUrl" [alt]="c.description">
+    <div>
+        {{ c.description }}
+        {{ c.quantity }}
+        <button (click)="deleteItem(i)">x</button>
+    </div>
+</div>
+
+

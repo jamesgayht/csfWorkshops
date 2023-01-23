@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.side-by-side {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+}
+
+.center-it {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

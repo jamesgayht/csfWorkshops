@@ -1,0 +1,8 @@
+<div class="center-it">
+  <h1>Day31 WS shopping cart!</h1>
+</div>
+
+<div class="side-by-side">
+  <app-inventory (onSelection)="select($event)"></app-inventory>
+  <app-cart [cart]="content" (onDelete)="delete($event)"></app-cart>
+</div>
