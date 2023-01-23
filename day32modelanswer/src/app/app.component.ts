@@ -11,13 +11,15 @@ export class AppComponent implements OnInit{
   todo: Todo|null = null; 
   
   ngOnInit(): void { 
-
+    const jsonString = localStorage.getItem('todo')
+    if(!!jsonString)
+      this.todo = JSON.parse(jsonString)
   }
 
   processNewTodo(todo: Todo) {
     const jsonString = JSON.stringify(todo)
-    console.info(">>> Saving info to local storage <<<", jsonString)
     localStorage.setItem("todo", jsonString)
+    console.info(">>> Saving info to local storage <<<", jsonString)
   }
 
   
