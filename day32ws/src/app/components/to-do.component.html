@@ -1,0 +1,54 @@
+<form [formGroup]="formGroup">
+    <h2>Add your To-Dos below!</h2>
+    <table>
+        <tr>
+            <td>Description:</td>
+            <td><input type="text" required formControlName="description" ng></td>
+        </tr>
+        <tr>
+            <td>Priority:</td>
+            <td>
+                <select required formControlName="priority">
+                    <option value="low" selected>LOW</option>
+                    <option value="medium">MEDIUM</option>
+                    <option value="high">HIGH</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Due:</td>
+            <td><input type="date" required formControlName="due"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" [disabled]="formGroup.invalid" (click)="addTask()">Add</button></td>
+        </tr>
+
+        <div *ngIf="todo.length <= 0">
+            <h2>You're a free bird today!</h2>
+        </div>
+
+        <div *ngIf="todo.length > 0">
+            <h2>Time to get workin!</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of todo">
+                        <td>{{ t.description }}</td>
+                        <td>{{ t.priority }}</td>
+                        <td>{{ t.due }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </table>
+</form>
+
+
