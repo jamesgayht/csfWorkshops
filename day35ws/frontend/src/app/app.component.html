@@ -1,0 +1,20 @@
+<p>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Boardgames</span>
+      <span class="toolbar-spacer"></span>
+      <span>
+        <form [formGroup]="form">
+          <mat-form-field appearance="fill">
+            <mat-label>Games Per Page</mat-label>
+            <mat-select formControlName="noOfGamesPerPage" (selectionChange)="newNoOfGamesPerPage()">
+              <mat-option *ngFor="let g of gamesPerPage" [value]="g">{{ g }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+
+<app-game [gamesPerPage]="noOfGamesPerPage"></app-game>

@@ -1,0 +1,9 @@
+<mat-list role="list">
+        <mat-list-item class="games" role="listitem" *ngFor="let g of games; let idx = index">{{idx + 1}}. {{ g.name }}</mat-list-item>
+</mat-list>
+
+<div>
+    <button mat-raised-button color="primary" (click)="nextPage()">Next</button>
+    <button *ngIf="currentPage > 1" mat-raised-button color="accent" (click)="previousPage()">Previous</button>
+    <!-- <mat-form-field> {{ currentPage }} </mat-form-field> -->
+</div>

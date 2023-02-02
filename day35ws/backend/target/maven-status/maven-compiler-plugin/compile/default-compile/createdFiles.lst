@@ -1,0 +1,6 @@
+vttp/paf/day26ws/Day26wsApplication.class
+vttp/paf/day26ws/models/Game.class
+vttp/paf/day26ws/models/GameDetails.class
+vttp/paf/day26ws/controllers/GameDetailsRESTController.class
+vttp/paf/day26ws/repositories/GameRepo.class
+vttp/paf/day26ws/controllers/GamesRESTController.class
