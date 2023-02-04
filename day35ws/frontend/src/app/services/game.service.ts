@@ -10,7 +10,7 @@ export class GameService {
 
   constructor(private httpService: HttpClient) { }
 
-  BACKEND_API_URL = "http://localhost:8080/games/rank"
+  BACKEND_API_URL = "http://localhost8080/games/rank"
   
   gameResult!: GameResult
 
@@ -22,6 +22,8 @@ export class GameService {
     const headers = new HttpHeaders()
                         .set('content-type', 'application/json')
                         .set('Access-Control-Allow-Origin', '*')
+                        // .set('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE')
+                        // .set('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, Content-Type, Accept, Accept-Language, Origin, User-Agent')
 
     return this.httpService.get<GameResult>(this.BACKEND_API_URL, {params: params, headers: headers})
 

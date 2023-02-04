@@ -18,7 +18,9 @@ public class Day26wsApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry corsRegistry) {
-				corsRegistry.addMapping("/games/rank").allowedOrigins("*"); 
+				corsRegistry.addMapping("/games/rank").
+				allowedOrigins("*"); 
+				
 			}
 		};
 	}

@@ -2,6 +2,10 @@
   <h1>Day32's ToDo List!</h1>
 </div>
 
-<div class="side-by-side">
-  <app-to-do></app-to-do>
+<div class="center-it">
+  <app-to-do (onClick)="addTask($event)"></app-to-do>
+</div>
+
+<div class="center-it">
+  <app-tasks [tasks]="tasks"></app-tasks>
 </div>

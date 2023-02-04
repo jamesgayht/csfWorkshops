@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './models';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  
+  tasks: Task[] = []
+
+  addTask(task: Task) {
+    console.info(">>> Task: ", task)
+    this.tasks.push(task)
+    console.info(">>> Tasks Array: ", this.tasks)
+  }
 
 }

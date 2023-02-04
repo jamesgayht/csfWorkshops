@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="processForm()">
     <h2>Add your To-Dos below!</h2>
     <table>
         <tr>
@@ -21,10 +21,11 @@
         </tr>
         <tr>
             <td></td>
-            <td><button type="button" [disabled]="formGroup.invalid" (click)="addTask()">Add</button></td>
+            <td><button type="submit" [disabled]="formGroup.invalid">Add</button></td>
         </tr>
 
-        <div *ngIf="todo.length <= 0">
+        <!-- TODO TASKS -->
+        <!-- <div *ngIf="todo.length <= 0">
             <h2>You're a free bird today!</h2>
         </div>
 
@@ -38,17 +39,75 @@
                         <th>Due Date</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let t of todo">
+                <tbody *ngFor="let t of todo; let idx = index">
+                    <tr>
                         <td>{{ t.description }}</td>
                         <td>{{ t.priority }}</td>
                         <td>{{ t.due }}</td>
+                        <td>
+                            <button type="button" (click)="completedTask(idx)">&#x2713;</button>
+                        </td>
+                        <td>
+                            <button type="button" (click)="deleteTask(idx)">x</button>
+                        </td>
+                        <td>
+                            <button type="button" (click)="editTask(idx)">Edit</button>
+                        </td>
+                    </tr> -->
+
+                    <!-- EDIT TASK -->
+                    <!-- <tr *ngIf="showEdit && (editIndex == idx)">
+                        <td>
+                            <input type="text" #box (keyup)="updateTask(idx, box.value)">
+                        </td>
+                        <td>
+                            <select name="priority">
+                                <option value="">LOW</option>
+                                <option value="">MEDIUM</option>
+                                <option value="">HIGH</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" name="due">
+                        </td>
+                        <td>
+                            <button type="button" (click)="updateTask(idx, box.value)">Update</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+        </div> -->
+
+        <!-- COMPLETED TASKS -->
+        <!-- <div *ngIf="completed.length <= 0">
+            <h2>You have not completed any tasks so far!</h2>
         </div>
+
+        <div *ngIf="completed.length > 0">
+            <h2>Great job conquering these tasks!</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of completed; let idx = index">
+                        <td>{{ t.description }}</td>
+                        <td>{{ t.priority }}</td>
+                        <td>{{ t.due }}</td>
+                        <td>
+                            <button type="button" (click)="deleteCompleted(idx)">x</button>
+                        </td>
+                        <td>
+                            <button type="button">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
 
     </table>
 </form>
-
-

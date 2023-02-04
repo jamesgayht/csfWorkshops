@@ -1,1 +1,79 @@
-<p>tasks works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="processUpdate()">
+    <div *ngIf="tasks.length <= 0">
+        <h2>You're a free bird today!</h2>
+    </div>
+
+    <div *ngIf="tasks.length > 0">
+        <h2>Time to get workin!</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let t of tasks; let idx = index">
+                <tr>
+                    <td>{{ t.description }}</td>
+                    <td>{{ t.priority }}</td>
+                    <td>{{ t.due }}</td>
+                    <td>
+                        <button type="button" (click)="hideCompletedTask(idx)">&#x2713;</button>
+                    </td>
+                    <td>
+                        <button type="button" (click)="deleteTask(idx)">x</button>
+                    </td>
+                    <td>
+                        <button type="button" (click)="showEditTask(idx)">Edit</button>
+                    </td>
+                </tr>
+                <!-- Edit Task -->
+                <tr *ngIf="editTask && editTaskIndex == idx">
+                    <td>
+                        <input type="text" formControlName="description">
+                    </td>
+                    <td>
+                        <select formControlName="priority">
+                            <option value="low">LOW</option>
+                            <option value="medium">MEDIUM</option>
+                            <option value="high">HIGH</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="date" formControlName="due">
+                    </td>
+                    <td>
+                        <button type="submit">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</form>
+
+    <!-- Completed Tasks -->
+    <div *ngIf="completedTasks.length <= 0">
+        <h2>You have yet to complete any tasks you bum!</h2>
+    </div>
+
+    <div *ngIf="completedTasks.length > 0">
+        <h2>Great job completing these tasks!</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Due</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let ct of completedTasks">
+                <tr>
+                    <td>{{ ct.description }}</td>
+                    <td>{{ ct.priority }}</td>
+                    <td>{{ ct.due }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
