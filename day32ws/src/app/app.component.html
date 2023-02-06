@@ -7,5 +7,7 @@
 </div>
 
 <div class="center-it">
-  <app-tasks [tasks]="tasks"></app-tasks>
+  <app-tasks (processEdit)="editTask($event)" 
+  (processCompleted)="completeTask($event)" 
+  [tasks]="tasks" [completedTasks]="completedTasks"></app-tasks>
 </div>
