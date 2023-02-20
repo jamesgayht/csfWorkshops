@@ -1,0 +1,8 @@
+<h3>Game Details</h3>
+
+<div *ngIf="gameDetails">
+    <h4>{{ gameDetails.name }}</h4>
+    <div> Ranking:{{ gameDetails.ranking }}</div>
+    <img [src]=gameDetails.image width="100">
+</div>
+<button [routerLink]="['/']">Back</button>

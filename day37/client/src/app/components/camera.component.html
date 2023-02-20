@@ -1,0 +1,15 @@
+<h3>
+    <button type="button" (click)="startSnapping()">Start snappin!</button>
+    <button type="button" (click)="stopSnapping()">Stop snappin!</button>
+</h3>
+
+<div *ngIf="showWebCam">
+    <webcam [height]="height" [width]="width" [trigger]="triggerObservable" (imageCapture)="handleWebcamImage($event)"></webcam>
+    <div>
+        <button type="button" (click)="triggerSnapshot()">Snap</button>
+    </div>
+</div>
+
+<!-- <div *ngIf="webcamImage">
+    <img src="{{webcamImage.imageAsDataUrl}}" alt="">
+</div> -->

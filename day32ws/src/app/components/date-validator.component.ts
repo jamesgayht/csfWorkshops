@@ -8,26 +8,27 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 })
 export class DateValidatorComponent {
   // static greaterThan(startControl: AbstractControl): ValidatorFn {
-  static greaterThan(startDate: number): ValidatorFn {
+  static greaterThan(): ValidatorFn {
     return (endControl: AbstractControl): ValidationErrors | null => {
-      // const startDate: Date = startControl.value; 
-      const endDate: number = endControl.value; 
-      if (!startDate || !endDate) {
+      const startDate: number = Date.parse(endControl.value)
+      const today: number = new Date().getDate(); 
+
+      if (!startDate || !today) {
         console.info(">>> Returning null <<<")
         console.info("startDate.getTime >>> ",startDate)
-        console.info("endDate.getTime >>> ",endDate)
+        console.info("today.getTime >>> ",today)
         return null;
       }
-      if(startDate >= endDate) {
+      if(startDate >= today) {
         console.info("startDate.getTime >>> ",startDate)
-        console.info("endDate.getTime >>> ",endDate)
-        console.info(">>> startDate >= endDate <<<")
+        console.info("today.getTime >>> ",today)
+        console.info(">>> startDate >= today <<<")
         return {greaterThan: true}; 
       }
-      if(startDate < endDate) {
+      if(startDate < today) {
         console.info("startDate.getTime >>> ",startDate)
-        console.info("endDate.getTime >>> ",endDate)
-        console.info(">>> startDate >= endDate <<<")
+        console.info("today.getTime >>> ",today)
+        console.info(">>> startDate >= today <<<")
         return {greaterThan: false}; 
       }
 

@@ -1,0 +1,26 @@
+<h3>Add a city to your list below!</h3>
+
+<form [formGroup]="form" (ngSubmit)="addCity()">
+    <table>
+        <tr>
+            <td>City: </td>
+            <td><input type="text" formControlName="cityName"></td>
+            <td><button type="submit">Add</button></td>
+        </tr>
+    </table>
+</form>
+
+<ul *ngIf="cities.length <= 0">
+    <h3>You have not added any cities!</h3>
+</ul>
+
+<ul *ngIf="cities.length > 0">
+        <li *ngFor="let c of cities; let idx = index">
+            <span [routerLink]="['/weather', c.cityName]">
+                {{ c.cityName }}
+            </span>
+            <span>
+                <button (click)="deleteCity(idx)">x</button>
+            </span>
+        </li>
+</ul>

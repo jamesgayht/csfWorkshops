@@ -1,0 +1,43 @@
+<h1>Contacts</h1>
+
+<form [formGroup]="form" (ngSubmit)="processForm()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input type="email" formControlName="email"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="button" (click)="addContact()">Add</button></td>
+    </tr>
+  </table>
+
+  <div *ngIf="contacts.length > 0">
+    <h3>Your contacts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let c of contacts">
+        <tr>
+          <td>{{ c.name }}</td>
+          <td>{{ c.email }}</td>
+        </tr>
+      </tbody>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit">Sync</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+

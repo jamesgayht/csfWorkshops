@@ -59,7 +59,7 @@ export class ToDoComponent implements OnInit {
     return this.fb.group({
       description: this.fb.control(task?.description? task.description: '', [Validators.required, Validators.minLength(5)]),
       priority: this.fb.control(task?.priority? task.priority: '', [Validators.required]),
-      due: this.fb.control(task?.due? task.due: this.dateFormatted, [Validators.required])
+      due: this.fb.control(task?.due? task.due: this.dateFormatted, [Validators.required, DateValidatorComponent.greaterThan()])
     })
   }
 

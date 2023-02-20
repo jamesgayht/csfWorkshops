@@ -1,0 +1,10 @@
+.games {
+    padding: 5px;
+    margin: 3px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+.games:hover {
+    background-color: lightblue;
+}

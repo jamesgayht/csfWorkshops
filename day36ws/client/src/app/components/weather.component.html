@@ -1,0 +1,33 @@
+
+<table>
+    <tr>
+        <td>
+            <h3>Here is {{ cityName }}'s Weather Today</h3>
+        </td>
+        <td><button [routerLink]="['/']">Back</button></td>
+    </tr>
+    <tr>
+        <td>Temp:</td>
+        <td> {{ weather.temp - 273.15 }}</td>
+    </tr>
+    <tr>
+        <td>Pressure:</td>
+        <td>{{ weather.pressure }}</td>
+    </tr>
+    <tr>
+        <td>Humidity:</td>
+        <td>{{ weather.humidity }}</td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td>{{ weather.description }}</td>
+    </tr>
+    <tr>
+        <td>Wind Speed:</td>
+        <td>{{ weather.windSpeed }}</td>
+    </tr>
+    <tr>
+        <td>Wind Degree:</td>
+        <td>{{ weather.windDegree }}</td>
+    </tr>
+</table>

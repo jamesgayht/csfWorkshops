@@ -1,0 +1,26 @@
+<h1>My First SPA</h1>
+
+<div class="box">
+  <!-- its a directive provided by router module -->
+  <a [routerLink]="['/']">Home</a>
+  <a [routerLink]="['/dog']">Dog</a>
+  <button [routerLink]="['/polar-bear']">Polar Bear</button>
+</div>
+
+<div class="box">
+  <form [formGroup]="form" (ngSubmit)="add()">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" formControlName="name"></td>
+        <td>
+          <button type="submit">Add</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<div class="box">
+  <router-outlet></router-outlet>
+</div>
