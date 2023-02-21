@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Upload</title>
+</head>
+<body>
+    
+    <h1>Post Upload</h1>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>Image to upload:</td>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td>Comments:</td>
+                <td><input type="text" name="comments"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">Upload</button></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

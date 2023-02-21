@@ -1,0 +1,24 @@
+<h3>Post Upload From Angular</h3>
+
+<form [formGroup]="form" (ngSubmit)="uploadPost()">
+    <table>
+        <tr *ngIf="selectedFile">
+            <td></td>
+            <td>
+                <img src="{{base64}}" alt="" height="200" width="200">
+            </td>
+        </tr>
+        <tr>
+            <td>Image to upload:</td>
+            <td><input type="file" accept="image/*" formControlName="file" #image (change)="onFileSelected()"></td>
+        </tr>
+        <tr>
+            <td>Comments:</td>
+            <td><input type="text" formControlName="comments"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Upload</button></td>
+        </tr>
+    </table>
+</form>
