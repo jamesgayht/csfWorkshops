@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="addCityToRepo()">
+    <table>
+        <tr>
+            <td>City:</td>
+            <td><input type="text" formControlName="city"></td>
+            <td><button type="submit" [disabled]="formInvalid()">Add</button></td>
+        </tr>
+        <tr *ngFor="let c of cities; let idx = index">
+            <td></td>
+            <td [routerLink]="['/weather', c.city]">{{ c.city }}</td>
+        </tr>
+    </table>
+</form>
