@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="search()">
+
+    <h3>
+        You either die a hero or live long enough to see yourself become the villain
+    </h3>
+
+    <table>
+        <tr>
+            <td>Search for a character:</td>
+            <td><input type="text" formControlName="character"></td>
+            <td><button type="submit" [disabled]="form.invalid">Search</button></td>
+        </tr>
+    </table>
+</form>

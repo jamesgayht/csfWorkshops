@@ -1,0 +1,11 @@
+<h3>Your search results for {{ character }}</h3>
+
+<div *ngIf="characters.length > 0">
+    <ol>
+        <li *ngFor="let c of characters" [routerLink]="['/character', c.id ]">{{ c.name }}</li>
+    </ol>
+</div>
+<div>
+    <button type="button" (click)="previousPage()" [disabled]="currentPage <= 1">Previous</button>
+    <button type="button" (click)="nextPage()">Next</button>
+</div>

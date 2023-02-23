@@ -1,0 +1,33 @@
+<table>
+    <tr>
+        <td></td>
+        <td><img src="{{ character.image }}" height="250" width="250" alt=""></td>
+    </tr>
+    <tr>
+        <td>{{ character.name }}</td>
+        <td><button type="button" [routerLink]="['/character', character.id, 'comments']">Comment</button></td>
+    </tr>
+    <tr>
+        <td>Description: </td>
+        <td>{{ character.description }}</td>
+    </tr>
+    <tr>
+        <td>More Details: </td>
+        <td><a [href]=character.details ></a> {{ character.details }}</td>
+    </tr>
+</table>
+
+<div *ngIf="comments.length <= 0">
+    <h4>There are currently no comments for {{ character.name }}</h4>
+</div>
+
+<table *ngIf="comments.length > 0">
+    <tr *ngFor="let c of comments">
+        <td>{{ c.comment }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
